@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cartas para Cinthia 💌</title>
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -19,9 +20,11 @@
       text-align: center;
       text-decoration: none;
     }
+
     .boton-inicio:hover {
       background-color: #ff1a75;
     }
+
     .contenedor-cartas {
       display: flex;
       flex-direction: column;
@@ -30,7 +33,10 @@
       max-width: 600px;
       margin: auto;
       padding-top: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
+
     .carta {
       background: white;
       border-radius: 15px;
@@ -39,7 +45,9 @@
       width: 90%;
       display: none;
       font-size: 18px;
+      line-height: 1.6;
     }
+
     .boton-carta {
       background-color: #ff4d88;
       color: white;
@@ -52,8 +60,39 @@
       width: 100%;
       max-width: 300px;
     }
+
     .boton-carta:hover {
       background-color: #ff1a75;
+    }
+
+    /* --- ESTILOS RESPONSIVE --- */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+        margin-top: 10px;
+      }
+
+      h3 {
+        font-size: 18px;
+        padding: 0 10px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 15px;
+        padding: 0 15px;
+        text-align: center;
+      }
+
+      .boton-carta {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .carta {
+        font-size: 16px;
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -62,10 +101,9 @@
   <a href="index.html" class="boton-inicio">🏠 Inicio</a>
 
   <h1>💖</h1>
-  <h3>5 principales razones por las cuales me enamore de ti </h3>
-  
-  <p>Desde que nos conocimos, supe que algo especial estaba comenzando. </p>
-  
+  <h3>5 principales razones por las cuales me enamoré de ti</h3>
+
+  <p>Desde que nos conocimos, supe que algo especial estaba comenzando.</p>
   <p>Nuestra historia es mi favorita. Gracias por formar parte de ella. 📖🌙</p>
 
   <div class="contenedor-cartas">
@@ -78,48 +116,40 @@
     <div id="carta1" class="carta">
       Querida Cinthia<br /><br />
       Cada día que pasa me doy cuenta de cuánto significas para mí. Ese rostro tan lindo que tienes quisiera
-      siempre verlo, por años de años. Doy gracias al destino por haber encontrado a una niña tan linda como tu💕.
+      siempre verlo, por años de años. Doy gracias al destino por haber encontrado a una niña tan linda como tú💕.
       Eres esa persona que alegra mi vida solo con existir 💕.
     </div>
 
     <div id="carta2" class="carta">
       Tus ojitos 👁️✨ 
-      <br>
-      <br>
-      Esos ojitos color café tan hermoso que tienes me encantan, esa mirada que me hace ver a la mujer tan linda que tengo
-      en mi vida y que no quisiera perderla nunca, por mas problemas que tengamos .. quiero permanecer el resto de mi
-      vida contigo mi Cinthia preciosa 💕.
-      
+      <br><br>
+      Esos ojitos color café tan hermosos que tienes me encantan, esa mirada que me hace ver a la mujer tan linda que tengo
+      en mi vida y que no quisiera perderla nunca. Por más problemas que tengamos... quiero permanecer el resto de mi
+      vida contigo, mi Cinthia preciosa 💕.
     </div>
 
     <div id="carta3" class="carta">
-      Tu labios 💋 
-      <br>
-      <br>
-       Me gustan tanto… No solo por cómo se ven, sino por todo lo que expresas con ellos. Cada sonrisa tuya, 
-       cada palabra, cada gesto.
-      
+      Tus labios 💋 
+      <br><br>
+      Me gustan tanto… No solo por cómo se ven, sino por todo lo que expresas con ellos. Cada sonrisa tuya, 
+      cada palabra, cada gesto.
     </div>
 
     <div id="carta4" class="carta">
       Tu Cabello 💇‍♀️🌊
-      <br>
-      <br>
+      <br><br>
       Tu cabello también me encanta. Lacio se ve tan elegante, tan suave... pero cuando decides dejarlo ondular, 
       te ves igual de hermosa, como si cada rizo tuviera su propia historia. Sea como sea, siempre te ves increíble.
-      Siempre me vas a gustar, no habra nadie que te haga competencia, eres única y me encantas mi amor ❤️.
+      Siempre me vas a gustar, no habrá nadie que te haga competencia, eres única y me encantas mi amor ❤️.
     </div>
 
     <div id="carta5" class="carta">
       Tu linda personalidad 💖🌟 
-      <br>
-      <br>
+      <br><br>
       Pero lo que más me gusta de ti, más allá de todo lo físico, es tu forma de ser. 
-      Me encanta cómo eres: tierna, alegre, fuerte, auténtica, decidida y con esas hermosa alma de niña, tienes esa mezcla
-      única de dulzura que te hace hace admirarte cada día más. Me siento muy afortunado de haberte conocido mi amor ❤️.
-
+      Me encanta cómo eres: tierna, alegre, fuerte, auténtica, decidida y con esa hermosa alma de niña. Tienes esa mezcla
+      única de dulzura que te hace admirarte cada día más. Me siento muy afortunado de haberte conocido, mi amor ❤️.
     </div>
-
   </div>
 
   <script>

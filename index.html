@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cinthia ❤️</title>
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -13,27 +14,32 @@
       overflow: hidden;
       position: relative;
     }
+
     h1 {
       font-size: 60px;
       color: #e60073;
       animation: latido 1s infinite;
     }
+
     @keyframes latido {
       0% { transform: scale(1); }
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
+
     .corazon, .girasol {
       position: absolute;
       width: 20px;
       height: 20px;
       animation: caer 5s linear infinite;
     }
+
     .corazon {
       background: red;
       transform: rotate(45deg);
       top: -20px;
     }
+
     .corazon::before,
     .corazon::after {
       content: "";
@@ -43,8 +49,10 @@
       border-radius: 50%;
       position: absolute;
     }
+
     .corazon::before { top: -10px; left: 0; }
     .corazon::after { top: 0; left: -10px; }
+
     .girasol {
       background: url('img/girasol.png') no-repeat center center;
       background-size: contain;
@@ -53,6 +61,7 @@
       top: -25px;
       animation-duration: 7s;
     }
+
     @keyframes caer {
       0% { top: -25px; opacity: 1; }
       100% { top: 100%; opacity: 0; }
@@ -71,8 +80,35 @@
       text-decoration: none;
       display: inline-block;
     }
+
     .boton:hover {
       background-color: #ff1a75;
+    }
+
+    /* --- ESTILOS RESPONSIVE --- */
+    @media (max-width: 600px) {
+      body {
+        padding-top: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+      .boton {
+        font-size: 14px;
+        padding: 10px 20px;
+        margin: 8px;
+        width: 80%;
+        max-width: 250px;
+      }
     }
   </style>
 </head>

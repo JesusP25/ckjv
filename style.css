@@ -14,7 +14,6 @@ h1 {
   animation: latido 1s infinite;
 }
 
-/* Animación de latido */
 @keyframes latido {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
@@ -72,7 +71,7 @@ h1 {
 
 /* Mensaje de la carta */
 #mensaje {
-  max-width: 500px;
+  max-width: 90%;
   margin: 20px auto;
   background: white;
   padding: 20px;
@@ -86,6 +85,7 @@ h1 {
 
 /* Estilos para el rompecabezas */
 #rompecabezas {
+  width: 100%;
   max-width: 660px;
   margin: 0 auto;
   display: flex;
@@ -99,8 +99,9 @@ h1 {
 }
 
 .pieza {
-  width: 200px;
-  height: 133px;
+  width: calc(50% - 12px);
+  max-width: 200px;
+  aspect-ratio: 3 / 2;
   border: 2px solid #e60073;
   border-radius: 10px;
   background-size: cover;
@@ -110,6 +111,7 @@ h1 {
 
 #zona-armado {
   margin-top: 40px;
+  width: 100%;
   max-width: 660px;
   min-height: 280px;
   border: 4px dashed #ff1a75;
@@ -123,8 +125,9 @@ h1 {
 }
 
 .zona-slot {
-  width: 200px;
-  height: 133px;
+  width: calc(50% - 12px);
+  max-width: 200px;
+  aspect-ratio: 3 / 2;
   border: 2px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
@@ -136,4 +139,31 @@ h1 {
   color: #e60073;
   font-weight: bold;
   display: none;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  .boton {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  #mensaje {
+    font-size: 16px;
+  }
+
+  .pieza,
+  .zona-slot {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 3 / 2;
+  }
+
+  #zona-armado {
+    min-height: auto;
+  }
 }

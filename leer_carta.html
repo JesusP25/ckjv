@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cartas para Cinthia 💌</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .boton-inicio {
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px auto;
+      display: block;
+      width: 120px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .boton-inicio:hover {
+      background-color: #ff1a75;
+    }
+    .contenedor-cartas {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 600px;
+      margin: auto;
+      padding-top: 40px;
+    }
+    .carta {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 0, 102, 0.2);
+      width: 90%;
+      display: none;
+      font-size: 18px;
+    }
+    .boton-carta {
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      max-width: 300px;
+    }
+    .boton-carta:hover {
+      background-color: #ff1a75;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="inicio.html" class="boton-inicio">🏠 Inicio</a>
+
+  <h1>💖</h1>
+  <h3>5 principales razones por las cuales me enamore de ti </h3>
+  
+  <p>Desde que nos conocimos, supe que algo especial estaba comenzando. </p>
+  
+  <p>Nuestra historia es mi favorita. Gracias por formar parte de ella. 📖🌙</p>
+
+  <div class="contenedor-cartas">
+    <button class="boton-carta" onclick="mostrarCarta(1)">1. Tu Rostro</button>
+    <button class="boton-carta" onclick="mostrarCarta(2)">2. Tus Ojos</button>
+    <button class="boton-carta" onclick="mostrarCarta(3)">3. Tus Labios</button>
+    <button class="boton-carta" onclick="mostrarCarta(4)">4. Tu Cabello</button>
+    <button class="boton-carta" onclick="mostrarCarta(5)">5. Tu Personalidad</button>
+
+    <div id="carta1" class="carta">
+      Querida Cinthia<br /><br />
+      Cada día que pasa me doy cuenta de cuánto significas para mí. Ese rostro tan lindo que tienes quisiera
+      siempre verlo, por años de años. Doy gracias al destino por haber encontrado a una niña tan linda como tu💕.
+      Eres esa persona que alegra mi vida solo con existir 💕.
+    </div>
+
+    <div id="carta2" class="carta">
+      Tus ojitos 👁️✨ 
+      <br>
+      <br>
+      Esos ojitos color café tan hermoso que tienes me encantan, esa mirada que me hace ver a la mujer tan linda que tengo
+      en mi vida y que no quisiera perderla nunca, por mas problemas que tengamos .. quiero permanecer el resto de mi
+      vida contigo mi Cinthia preciosa 💕.
+      
+    </div>
+
+    <div id="carta3" class="carta">
+      Tu labios 💋 
+      <br>
+      <br>
+       Me gustan tanto… No solo por cómo se ven, sino por todo lo que expresas con ellos. Cada sonrisa tuya, 
+       cada palabra, cada gesto.
+      
+    </div>
+
+    <div id="carta4" class="carta">
+      Tu Cabello 💇‍♀️🌊
+      <br>
+      <br>
+      Tu cabello también me encanta. Lacio se ve tan elegante, tan suave... pero cuando decides dejarlo ondular, 
+      te ves igual de hermosa, como si cada rizo tuviera su propia historia. Sea como sea, siempre te ves increíble.
+      Siempre me vas a gustar, no habra nadie que te haga competencia, eres única y me encantas mi amor ❤️.
+    </div>
+
+    <div id="carta5" class="carta">
+      Tu linda personalidad 💖🌟 
+      <br>
+      <br>
+      Pero lo que más me gusta de ti, más allá de todo lo físico, es tu forma de ser. 
+      Me encanta cómo eres: tierna, alegre, fuerte, auténtica, decidida y con esas hermosa alma de niña, tienes esa mezcla
+      única de dulzura que te hace hace admirarte cada día más. Me siento muy afortunado de haberte conocido mi amor ❤️.
+
+    </div>
+
+  </div>
+
+  <script>
+    function mostrarCarta(numero) {
+      const cartas = document.querySelectorAll(".carta");
+      cartas.forEach((carta) => (carta.style.display = "none"));
+      document.getElementById("carta" + numero).style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rompecabezas para Cinthia 🧩</title>
+  <style>
+    body {
+      background: #ffe6e6;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .boton-inicio {
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .boton-inicio:hover {
+      background-color: #ff1a75;
+    }
+    #rompecabezas {
+      max-width: 660px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      border: 4px solid #ff4d88;
+      padding: 10px;
+      border-radius: 15px;
+      background: white;
+    }
+    .pieza {
+      width: 200px;
+      height: 133px;
+      border: 2px solid #e60073;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+      cursor: grab;
+    }
+    #zona-armado {
+      margin-top: 40px;
+      max-width: 660px;
+      min-height: 280px;
+      border: 4px dashed #ff1a75;
+      border-radius: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: #fff0f5;
+    }
+    .zona-slot {
+      width: 200px;
+      height: 133px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    #btnSiguiente {
+      display: none;
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #btnSiguiente:hover {
+      background-color: #ff1a75;
+    }
+    #mensaje-final {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #ff3399;
+      font-weight: bold;
+    }
+    #imagen-final {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 15px;
+      border: 4px solid #ff4d88;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="inicio.html" class="boton-inicio">🏠 Inicio</a>
+
+  <h1>Arma el rompecabezas</h1>
+  <p>Arrastra las piezas a la zona inferior para armar la imagen.</p>
+
+  <div id="rompecabezas"></div>
+  <div id="zona-armado"></div>
+
+  <button id="btnSiguiente">Siguiente rompecabezas ➡️</button>
+
+  <div id="mensaje-final"></div>
+  <img id="imagen-final" src="" alt="Imagen final del nivel" />
+
+  <script>
+    const totalNiveles = 3;
+    let nivelActual = 1;
+
+    const imagenesFinales = {
+      1: 'img/nivel1/cuando_nos_conocimos.jpg',
+      2: 'img/nivel2/1ra_salida.jpg',
+      3: 'img/nivel3/huacachina.jpg'
+    };
+
+    function cargarNivel(nivel) {
+      const rompecabezas = document.getElementById('rompecabezas');
+      const zonaArmado = document.getElementById('zona-armado');
+      const btnSiguiente = document.getElementById('btnSiguiente');
+      const mensajeFinal = document.getElementById('mensaje-final');
+      const imagenFinal = document.getElementById('imagen-final');
+
+      rompecabezas.innerHTML = '';
+      zonaArmado.innerHTML = '';
+      mensajeFinal.innerHTML = '';
+      btnSiguiente.style.display = 'none';
+      imagenFinal.style.display = 'none';
+      imagenFinal.src = '';
+
+      const piezas = [];
+      for (let i = 1; i <= 6; i++) {
+        const pieza = document.createElement('div');
+        pieza.classList.add('pieza');
+        pieza.setAttribute('draggable', 'true');
+        pieza.setAttribute('id', 'pieza' + i);
+        pieza.style.backgroundImage = `url('img/nivel${nivel}/pieza${i}.jpg')`;
+        piezas.push(pieza);
+
+        const slot = document.createElement('div');
+        slot.classList.add('zona-slot');
+        slot.setAttribute('data-slot', 'pieza' + i);
+        zonaArmado.appendChild(slot);
+      }
+
+      piezas.sort(() => Math.random() - 0.5);
+      piezas.forEach(p => rompecabezas.appendChild(p));
+
+      iniciarDragAndDrop();
+    }
+
+    function iniciarDragAndDrop() {
+      const piezas = document.querySelectorAll('.pieza');
+      const slots = document.querySelectorAll('.zona-slot');
+      let piezaArrastrada = null;
+
+      piezas.forEach(pieza => {
+        pieza.addEventListener('dragstart', () => {
+          piezaArrastrada = pieza;
+          setTimeout(() => pieza.style.display = 'none', 0);
+        });
+
+        pieza.addEventListener('dragend', () => {
+          pieza.style.display = 'block';
+          piezaArrastrada = null;
+        });
+      });
+
+      slots.forEach(slot => {
+        slot.addEventListener('dragover', e => e.preventDefault());
+        slot.addEventListener('drop', () => {
+          if (!slot.hasChildNodes()) {
+            if (piezaArrastrada.id === slot.dataset.slot) {
+              slot.appendChild(piezaArrastrada);
+              piezaArrastrada.setAttribute('draggable', 'false');
+              piezaArrastrada.style.cursor = 'default';
+              slot.style.borderColor = '#e60073';
+              verificarNivelCompleto();
+            } else {
+              alert('¡Esa pieza no va aquí!');
+            }
+          } else {
+            alert('Este espacio ya está ocupado.');
+          }
+        });
+      });
+    }
+
+    function verificarNivelCompleto() {
+      const completado = [...document.querySelectorAll('.zona-slot')].every(slot =>
+        slot.hasChildNodes() && slot.firstChild.id === slot.dataset.slot
+      );
+
+      if (completado) {
+        const mensaje = document.getElementById('mensaje-final');
+        const imagenFinal = document.getElementById('imagen-final');
+        const btn = document.getElementById('btnSiguiente');
+
+        mensaje.textContent = "¡Bien hecho, Amor! ❤️";
+        imagenFinal.src = imagenesFinales[nivelActual];
+        imagenFinal.style.display = 'block';
+
+        if (nivelActual < totalNiveles) {
+          btn.style.display = 'inline-block';
+        } else {
+          btn.textContent = '🎉 ¡Completado!';
+          btn.disabled = true;
+          btn.style.display = 'inline-block';
+        }
+      }
+    }
+
+    document.getElementById('btnSiguiente').addEventListener('click', () => {
+      nivelActual++;
+      cargarNivel(nivelActual);
+    });
+
+    cargarNivel(nivelActual);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recuerdos 🌻</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #fff0f5, #ffffcc);
+      background-image: url('https://i.pinimg.com/originals/25/50/46/25504628b3c74f4cdb37fd5bd569de17.jpg');
+      background-repeat: repeat;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 50px;
+      color: #e67300;
+      margin-bottom: 30px;
+      animation: girar 6s infinite linear;
+    }
+
+    @keyframes girar {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(1deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .boton-recuerdo {
+      background-color: #ffd966;
+      color: #6b4e16;
+      border: 2px solid #f1c232;
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 220px;
+    }
+
+    .boton-recuerdo:hover {
+      background-color: #ffe599;
+    }
+
+    .recuerdo {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 187, 0, 0.3);
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /*
+    .recuerdo img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }*/
+
+    .recuerdo img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+
+    .recuerdo img:hover {
+      transform: scale(1.02);
+    }
+
+    .volver {
+      margin-top: 30px;
+      display: inline-block;
+      background-color: #ffad33;
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .boton-inicio:hover {
+      background-color: #ff1a75;
+    }
+
+    .boton-inicio {
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px auto;
+      display: block;
+      width: 120px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .volver:hover {
+      background-color: #e69500;
+    }
+  </style>
+</head>
+<body>
+  <a href="inicio.html" class="boton-inicio">🏠 Inicio</a>
+  <h1>🌻 Nuestros Recuerdos 🌻</h1>
+
+  <div class="galeria">
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(1)">1. Cuando nos conocimos</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(2)">2. Nuestra primera salida</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(3)">3. Nuestro primer beso</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(4)">4. Nuestra primera comida</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(5)">5. Un día cualquiera, pero bonito</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(6)">6. Mi cumpleaños</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(7)">7. Día especial contigo</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(8)">8. Cena especial</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(9)">9. Nuestra promesa</button>
+    <button class="boton-recuerdo" onclick="mostrarRecuerdo(10)">10. Siempre juntos</button>
+  </div>
+
+  <div id="recuerdo" class="recuerdo">
+    <img id="recuerdoImg" src="" alt="Recuerdo">
+    <p id="recuerdoTexto"></p>
+  </div>
+
+  <script>
+    const recuerdos = [
+      {
+        img: 'img/1_karen.jpg',
+        texto: 'Recuerdo que tu me llamastes y dijiste que ibas a viajar y yo me quede sin palabras, sin pensar que el dia de conocerte iba a conocer a la persona mas hermosa del mundo, la cual seria la chica que quiero que este siempre en mi vida.'
+      },
+      {
+        img: 'img/2_chorrillos.jpg',
+        texto: 'Nuestra primera salida fue a la playa, justo en el muelle de chorrillos, fue el primer día que nos conocimos💖'
+      },
+      {
+        img: 'img/3_primer_beso.jpg',
+        texto: 'Fue cuando estabamos saliendo del muelle, justo subiendo a unas escaleras y allí fue que nos besamos por primera vez, fue el mismo día que nos conocimos, era una bonita tarde 💖 .'
+      },
+      {
+        img: 'img/4_primera_comida.jpg',
+        texto: 'Espero que recuerdes nuestra primera comida obviamente fue un rico pollito a la braza ✨ la cual fue elegido por ti, ya que yo te pregunte que querias de cenar y me dijiste que un pollito a la braza 💖 el lugar fue exactamente cerca al hospital maria auxiliadora, pero puse esa imagen la cual fue mi ultimo viaje y nos fuimos a comer pollito en Ica💖'
+      },
+      {
+        img: 'img/5_dia_cualquiera.jpg',
+        texto: 'Este dia fue cuando yo estaba en Ica fue un 15 de febrero del 2025 a las 11:47pm donde yo quise comer un helado y fue frente a la plaza de Ica que compramos el helado, lo importante aquí es que para mi lo hace especial el día porque estuve contigo 💕'
+      },
+      {
+        img: 'img/6_mi_cumpleaños.jpg',
+        texto: 'Celebrar mi cumpleaños contigo fue el mejor regalo que me diste ✨ ya que yo no soy tanto de celebrar mis cumpleaños y recuerdo que fue en la polleria que te gusta, Camperito, me invitaste pollito y anticuchos ✨💕'
+      },
+      {
+        img: 'img/7_cafe_buena_vista.jpg',
+        texto: 'Una tarde perfecta con café y tu sonrisa.'
+      },
+      {
+        img: 'img/8_cena_especial.jpg',
+        texto: 'Una cena que guardaré para siempre en mi corazón.'
+      },
+      {
+        img: 'img/9_máncora.jpg',
+        texto: 'Un viaje inolvidable a Máncora. Sol, playa y amor.'
+      },
+      {
+        img: 'img/10_siempre_juntos.jpg',
+        texto: 'No importa lo que venga, mientras estemos uno al lado del otro.'
+      }
+    ];
+
+    function mostrarRecuerdo(num) {
+      const img = document.getElementById('recuerdoImg');
+      const texto = document.getElementById('recuerdoTexto');
+      const div = document.getElementById('recuerdo');
+      img.src = recuerdos[num - 1].img;
+      texto.innerText = recuerdos[num - 1].texto;
+      div.style.display = 'block';
+      div.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

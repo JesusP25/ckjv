@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cinthia ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #ffe6e6;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding-top: 60px;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 60px;
+      color: #e60073;
+      animation: latido 1s infinite;
+    }
+    @keyframes latido {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .corazon, .girasol {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      animation: caer 5s linear infinite;
+    }
+    .corazon {
+      background: red;
+      transform: rotate(45deg);
+      top: -20px;
+    }
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .corazon::before { top: -10px; left: 0; }
+    .corazon::after { top: 0; left: -10px; }
+    .girasol {
+      background: url('img/girasol.png') no-repeat center center;
+      background-size: contain;
+      width: 25px;
+      height: 25px;
+      top: -25px;
+      animation-duration: 7s;
+    }
+    @keyframes caer {
+      0% { top: -25px; opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .boton {
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .boton:hover {
+      background-color: #ff1a75;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cinthia ❤️</h1>
+  <p>Con mucho cariño, para ti, mi amor 💌</p>
+
+  <a href="leer_carta.html" class="boton">💌</a>
+  <a href="recuerdos.html" class="boton">📷</a>
+  <a href="rompecabezas.html" class="boton">🧩</a>
+
+  <script>
+    function crearElemento(clase) {
+      const el = document.createElement('div');
+      el.classList.add(clase);
+      el.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 7000);
+    }
+    setInterval(() => crearElemento('corazon'), 300);
+    setInterval(() => crearElemento('girasol'), 2000);
+  </script>
+
+</body>
+</html>

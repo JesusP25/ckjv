@@ -10,7 +10,6 @@
       text-align: center;
       padding: 40px 20px;
     }
-
     .boton-inicio {
       background-color: #ff4d88;
       color: white;
@@ -23,53 +22,50 @@
       text-decoration: none;
       display: inline-block;
     }
-
     .boton-inicio:hover {
       background-color: #ff1a75;
     }
-
-    #rompecabezas, #zona-armado {
+    #rompecabezas {
       max-width: 660px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
+      border: 4px solid #ff4d88;
       padding: 10px;
       border-radius: 15px;
       background: white;
     }
-
-    #rompecabezas {
-      border: 4px solid #ff4d88;
-    }
-
-    #zona-armado {
-      margin-top: 40px;
-      border: 4px dashed #ff1a75;
-      background: #fff0f5;
-      min-height: 280px;
-    }
-
-    .pieza, .zona-slot {
-      width: calc(33.33% - 20px);
-      max-width: 200px;
-      aspect-ratio: 3 / 2;
-      border-radius: 10px;
-    }
-
     .pieza {
+      width: 200px;
+      height: 133px;
       border: 2px solid #e60073;
+      border-radius: 10px;
       background-size: cover;
       background-position: center;
       cursor: grab;
     }
-
+    #zona-armado {
+      margin-top: 40px;
+      max-width: 660px;
+      min-height: 280px;
+      border: 4px dashed #ff1a75;
+      border-radius: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: #fff0f5;
+    }
     .zona-slot {
+      width: 200px;
+      height: 133px;
       border: 2px solid #ccc;
+      border-radius: 10px;
       background-color: #f9f9f9;
     }
-
     #btnSiguiente {
       display: none;
       margin-top: 30px;
@@ -81,40 +77,21 @@
       border-radius: 10px;
       cursor: pointer;
     }
-
     #btnSiguiente:hover {
       background-color: #ff1a75;
     }
-
     #mensaje-final {
       margin-top: 30px;
       font-size: 22px;
       color: #ff3399;
       font-weight: bold;
     }
-
     #imagen-final {
       margin-top: 20px;
       max-width: 100%;
       border-radius: 15px;
       border: 4px solid #ff4d88;
       display: none;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .pieza, .zona-slot {
-        width: 100%;
-      }
-
-      #rompecabezas, #zona-armado {
-        padding: 5px;
-        gap: 8px;
-      }
-
-      #btnSiguiente {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -249,3 +226,6 @@
 
 </body>
 </html>
+
+
+
